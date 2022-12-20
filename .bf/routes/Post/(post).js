@@ -22,7 +22,6 @@ const POST = createHandler({
     lat: z.number(),
     image: z.string(),
     description: z.string(),
-    belongsToId: z.string(),
     type: z.enum(["GLASS", "ORGANIC", "PLASTIC", "METAL", "ELECTRONIC"])
   }),
   async action(context) {
@@ -36,7 +35,7 @@ const POST = createHandler({
           lat,
           image,
           description,
-          belongsToId
+          belongsToId: context.user
         }
       });
       context.json({ message: "Post created successfully", post });

@@ -1,8 +1,8 @@
 
     import { createHandler, z } from "@backframe/rest";
 import {hashSync} from "bcrypt";
-import { prisma } from "../../db.js";
-import { createToken } from "../../auth.js";
+import { prisma } from "../db.js";
+import { createToken } from "../auth.js";
 import bcrypt from "bcrypt";
 
 export const POST = createHandler({
