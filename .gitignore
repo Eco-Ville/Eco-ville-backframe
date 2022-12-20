@@ -1,3 +1,6 @@
 node_modules
 # Keep environment variables out of version control
 .env
+
+# Keep .bf folder out since it can be generated
+.bf/
