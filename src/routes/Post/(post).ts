@@ -13,7 +13,7 @@ export const GET = createHandler({
         }
     },
     middleware: [
-        protect
+        protect 
     ]
 
 })
@@ -26,7 +26,6 @@ export const POST = createHandler({
         lat: z.number(),
         image: z.string(),
         description: z.string(),
-        belongsToId: z.string(),
         type: z.enum(["GLASS", "ORGANIC", "PLASTIC", "METAL", "ELECTRONIC"])
     }),
 
@@ -41,7 +40,7 @@ export const POST = createHandler({
                     lat: lat,
                     image: image,
                     description: description,
-                    belongsToId: belongsToId
+                    belongsToId: context.user
                 }
             })
 
