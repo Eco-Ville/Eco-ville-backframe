@@ -1,5 +1,6 @@
 import { InternalException, createHandler, z } from "@backframe/rest";
 import { prisma } from "../../db.js";
+import { protect } from "../../auth.js";
 
 export const POST = createHandler({
   input: z.object({
@@ -10,7 +11,6 @@ export const POST = createHandler({
     image: z.string(),
     description: z.string(),
     amount: z.number(),
-    belongsToId: z.string(),
     type: z.enum(["GLASS", "ORGANIC", "PLASTIC", "METAL", "ELECTRONIC"]),
   }),
   async action(context) {
@@ -22,7 +22,6 @@ export const POST = createHandler({
       image,
       description,
       amount,
-      belongsToId,
     } = context.input;
     try {
       const post = await prisma.order.create({
@@ -34,7 +33,7 @@ export const POST = createHandler({
           image: image,
           description: description,
           amount_bid: amount,
-          belongsToId: belongsToId,
+          belongsToId: context.user,
         },
       });
 
@@ -43,6 +42,9 @@ export const POST = createHandler({
       context.json({ message: e.message });
     }
   },
+  middleware:[
+    protect
+  ]
 });
 
 export const GET = createHandler({
@@ -59,4 +61,7 @@ export const GET = createHandler({
       context.json(InternalException(e.message));
     }
   },
+  middleware:[
+    protect
+  ]
 });
