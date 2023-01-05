@@ -12,7 +12,7 @@
     "@backframe/core": "0.0.0-alpha.3",
     "@backframe/rest": "0.0.0-alpha.3",
     "bcrypt": "^5.1.0",
-    "jsonwebtoken": "^8.5.1"
+    "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
     "@backframe/cli": "^0.0.0-alpha.3",

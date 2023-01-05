@@ -1,7 +1,6 @@
-import { createHandler, z } from "@backframe/rest";
+import { Context, createHandler, z,InternalException } from "@backframe/rest";
 import { prisma } from "../../db.js";
-import { protect } from "../../auth.js";
-export const GET = createHandler({
+import { protect } from "../../auth.js";export const GET = createHandler({
   async action(context) {
     try {
       const posts = await prisma.post.findMany();
@@ -26,7 +25,7 @@ export const POST = createHandler({
   }),
 
   async action(context) {
-    const { name, location, lon, lat, image, description, belongsToId } =
+    const { name, location, lon, lat, image, description } =
       context.input;
     try {
       const post = await prisma.post.create({
@@ -48,3 +47,24 @@ export const POST = createHandler({
   },
   middleware: [protect],
 });
+
+
+export const DELETE = createHandler({
+    async action(context){
+        try{
+            const posts = await prisma.post.deleteMany({
+                where:{
+                    id: context.user,
+                },
+                
+            });
+
+            context.json({
+                message: "Possts deleted"
+            })
+
+        }catch(e){
+            context.json(InternalException(e.message))
+        }
+    }
+})

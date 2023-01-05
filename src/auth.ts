@@ -24,7 +24,7 @@ export const protect = (context) => {
       context.json({ message: "Invalid token" });
     } else {
       context.user = user.user;
-      context.next();
+      return context.next();
     }
   } catch (e) {
     context.json(InternalException(e.message));
