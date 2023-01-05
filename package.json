@@ -3,19 +3,19 @@
   "version": "1.0.0",
   "type": "module",
   "scripts": {
-    "dev": "bf serve --watch",
+    "dev": "bf serve",
     "start": "node bin/serve.mjs",
     "format": "prettier --write ./**/*.{ts,js}",
     "format:check": "prettier --check ./**/*.{ts,js}"
   },
   "dependencies": {
-    "@backframe/core": "0.0.0-alpha.1",
-    "@backframe/rest": "0.0.0-alpha.1",
+    "@backframe/core": "0.0.0-alpha.3",
+    "@backframe/rest": "0.0.0-alpha.3",
     "bcrypt": "^5.1.0",
     "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
-    "@backframe/cli": "0.0.0-alpha.1",
+    "@backframe/cli": "^0.0.0-alpha.3",
     "@types/bcrypt": "^5.0.0",
     "@types/jsonwebtoken": "^8.5.9",
     "prettier": "^2.8.1",
