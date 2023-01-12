@@ -9,13 +9,13 @@
     "format:check": "prettier --check ./**/*.{ts,js}"
   },
   "dependencies": {
-    "@backframe/core": "0.0.0-alpha.3",
-    "@backframe/rest": "0.0.0-alpha.3",
+    "@backframe/core": "0.0.0-alpha.5",
+    "@backframe/rest": "0.0.0-alpha.5",
     "bcrypt": "^5.1.0",
     "jsonwebtoken": "^9.0.0"
   },
   "devDependencies": {
-    "@backframe/cli": "^0.0.0-alpha.3",
+    "@backframe/cli": "^0.0.0-alpha.5",
     "@types/bcrypt": "^5.0.0",
     "@types/jsonwebtoken": "^8.5.9",
     "prettier": "^2.8.1",
